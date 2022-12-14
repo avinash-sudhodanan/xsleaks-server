@@ -52,7 +52,7 @@ router.get("/count", (req, res) => {
 
 router.get("/message", (req, res) => {
     if(count%2 === 1){
-        postmessenger = ```
+        postmessenger = `
         <html>
         <head>
         <script>
@@ -65,7 +65,7 @@ router.get("/message", (req, res) => {
         Message Broadcast Sent
         </body>
         </html>
-        ```
+        `;
         res.status(200).send(postmessenger);
     }
     else{
