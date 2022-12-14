@@ -50,6 +50,31 @@ router.get("/count", (req, res) => {
     count+=1;
 });
 
+router.get("/message", (req, res) => {
+    if(count%2 === 1){
+        postmessenger = ```
+        <html>
+        <head>
+        <script>
+            window.onload = function(){
+                window.opener.postMessage('Hi', '*');
+            }
+        </script>
+        </head>
+        <body>
+        Message Broadcast Sent
+        </body>
+        </html>
+        ```
+        res.status(200).send(postmessenger);
+    }
+    else{
+        res.status(200).send("No Message");
+    }
+
+    count+=1;
+});
+
 app.use(`/.netlify/functions/api`, router);
 
 module.exports = app;
